@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Card_github from './components/Card_github';
+import GitHubInfoCard from './components/Card_github';
 
 function App() {
   const [username, setUsername] = useState('');
@@ -11,18 +11,18 @@ function App() {
 
   return (
     <div className="App">
-    <h1>Github User Info</h1>
-    <div>
-      <input
-        type="text"
-        placeholder="Enter GitHub username"
-        value={username}
-        onChange={handleInputChange}
-      />
-      <button>Submit</button>
+      <h1>Github User Info</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter GitHub username"
+          value={username}
+          onChange={handleInputChange}
+        />
+        <button>Submit</button>
+      </div>
+      {username && <GitHubInfoCard username={username} />}
     </div>
-    {username && <Card_github username={username} />}
-  </div>
   );
 }
 
