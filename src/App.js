@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Card_github from './components/Card_github';
 
 function App() {
+  const [username, setUsername] = useState('');
+
+  const handleInputChange = (event) => {
+    setUsername(event.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>Github User Info</h1>
+    <div>
+      <input
+        type="text"
+        placeholder="Enter GitHub username"
+        value={username}
+        onChange={handleInputChange}
+      />
+      <button>Submit</button>
     </div>
+    {username && <Card_github username={username} />}
+  </div>
   );
 }
 
